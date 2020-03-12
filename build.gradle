@@ -54,6 +54,7 @@ subprojects {
 		compileOnly 'org.projectlombok:lombok:1.18.6'
 		annotationProcessor 'org.projectlombok:lombok'
 		implementation 'org.modelmapper:modelmapper:2.3.5'
+		implementation("com.google.code.findbugs:jsr305:3.0.2")
 
 		asciidoctor("org.springframework.restdocs:spring-restdocs-asciidoctor:${springRestDocsVersion}")
 		developmentOnly 'org.springframework.boot:spring-boot-devtools'

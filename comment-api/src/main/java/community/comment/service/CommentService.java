@@ -5,8 +5,13 @@ import community.comment.api.dto.CommentResponseDto;
 import community.comment.domain.Comment;
 import community.comment.domain.CommentRepository;
 import community.comment.exception.CommentNotFoundException;
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 import java.util.stream.Collectors;
+import javax.annotation.Nullable;
 import javax.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -17,8 +22,28 @@ public class CommentService {
   private final CommentRepository commentRepository;
 
   public List<CommentResponseDto> getComments(Long boardId, Long postId) {
-    return commentRepository.findByBoardIdAndPostId(boardId, postId).stream()
+
+    List<CommentResponseDto> comments = commentRepository.findByBoardIdAndPostId(boardId, postId).stream()
         .map(CommentResponseDto::of)
+        .sorted(Comparator.comparing(CommentResponseDto::getCreatedAt))
+        .collect(Collectors.toList());
+
+    Map<Long, CommentResponseDto> commentsMappedById = new HashMap<>();
+    for (var comment : comments) {
+      commentsMappedById.put(comment.getId(), comment);
+    }
+
+    for (var comment : comments) {
+      @Nullable CommentResponseDto parent = commentsMappedById.get(comment.getParentId());
+      if (Objects.isNull(parent)) {
+        continue;
+      }
+
+      parent.addChild(comment);
+    }
+
+    return comments.stream()
+        .filter(c -> Objects.isNull(c.getParentId()))
         .collect(Collectors.toList());
   }
 

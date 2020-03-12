@@ -1,6 +1,7 @@
 package community.comment.domain;
 
 import community.comment.api.dto.CommentRequestDto;
+import java.time.ZonedDateTime;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -29,6 +30,8 @@ public class Comment {
   private String content;
 
   private boolean active = true;
+
+  private ZonedDateTime createdAt;
 
   private Comment(CommentRequestDto requestDto) {
     this.boardId = requestDto.getBoardId();
