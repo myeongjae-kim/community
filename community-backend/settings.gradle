@@ -25,4 +25,5 @@ include 'core:core-user-resource'
 include 'in-system-available:common-web'
 
 include 'module:module-validation'
+include 'module:module-object-mapper-async'
 

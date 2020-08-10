@@ -1,36 +1,25 @@
-buildscript {
-	repositories {
-		mavenCentral()
-		jcenter()
-	}
-
-	ext {
-		springBootVersion = '2.3.1.RELEASE'
-		springRestDocsVersion = '2.0.4.RELEASE'
-        okHttpVersion = '4.4.0'
-		jsr305Version = "3.0.2"
-		javaxValidationApiVersion = "2.0.1.Final"
-        commonsLangVersion = "3.10"
-		h2DatabaseVersion = "1.4.199"
-		springTestVersion = "5.2.7.RELEASE"
-		hibernateValidatorVersion = "6.1.5.Final"
-        javaxElVersion = "3.0.0"
-		mariaDB4jVersion = "2.4.0"
-
-        // springCloudVersion = "Greenwich.RELEASE" // TODO: replace
-		springCloudVersion = "Greenwich.SR1"
-		springSecurityOAuth2AutoConfigureVersion = "2.1.9.RELEASE"
-	}
-
-	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-		classpath 'org.asciidoctor:asciidoctor-gradle-plugin:1.5.9.2'
-	}
-}
-
 plugins {
 	id 'org.flywaydb.flyway' version '6.0.1'
 	id "io.freefair.lombok" version "5.1.0"
+	id 'org.springframework.boot' version '2.3.1.RELEASE'
+	id "org.asciidoctor.convert" version "1.5.9.2"
+}
+
+ext {
+	springRestDocsVersion = '2.0.4.RELEASE'
+	okHttpVersion = '4.4.0'
+	jsr305Version = "3.0.2"
+	javaxValidationApiVersion = "2.0.1.Final"
+	commonsLangVersion = "3.10"
+	h2DatabaseVersion = "1.4.199"
+	springTestVersion = "5.2.7.RELEASE"
+	hibernateValidatorVersion = "6.1.5.Final"
+	javaxElVersion = "3.0.0"
+	mariaDB4jVersion = "2.4.0"
+
+	// springCloudVersion = "Greenwich.RELEASE" // TODO: replace
+	springCloudVersion = "Greenwich.SR1"
+	springSecurityOAuth2AutoConfigureVersion = "2.1.9.RELEASE"
 }
 
 task dockerComposeUp(type: Exec) {
@@ -56,6 +45,11 @@ task dockerBuild(type: Exec) {
 task dockerRun(type: Exec) {
 	group = 'docker'
 	commandLine "sh", "-c", "docker run --env PROFILE=local-docker -p 127.0.0.1:8080:80/tcp -t kiworkshop/community"
+}
+
+allprojects {
+	group = 'org.kiworkshop'
+	version = '0.0.1-SNAPSHOT'
 }
 
 // 모든 프로젝트 공통. 주로 lombok 의존성과 test환경 구성 담당
