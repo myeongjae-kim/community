@@ -3,7 +3,7 @@ Content-Type: application/json
 
 {
   "provider": "GOOGLE",
-  "providerAccessToken": "ya29.a0AfH6SMB1RqYmN1KpH0BbhjM_10lpyioOqjhxBn0-fWUItW9wf0j2as9cWgTf2bAXgcgRmEae4tIp68mkigZ2-KEQQYy85VCwcAkviZ_mxUNxLZqZW1gqtQ8umEh_S82BZveoh1d-gh_k4SuVA8NYEm7YSdoyCWLA-Fe4",
+  "providerAccessToken": "ya29.a0AfH6SMDqTyXjkpxXFtQ9PQ3rDNe04dyExRJFpbzAETE9kATL6quNdq3weVozsLC5s7JHruBe7NRU9_2ZwRV2iKLDwK_oUU5wZSrIe45OI6945dfYx-_-91GpwSRQc7D8PV83G3DcADf_BVGyoWBy16JKLJ4TsnZHRX8m",
   "nickname": "김명재"
 }
 
@@ -13,7 +13,7 @@ Content-Type: application/json
 
 {
   "provider": "GOOGLE",
-  "providerAccessToken": "ya29.a0AfH6SMBSeqq1AdEDAi2yGgIO37wiP-s0dN2VMiZOSt5a5-9XMUDBjrXyA9ttORCnkUxbAHzEeMskFesR0XEoCO8ZDTxAN_KcuEVDEpGAGKyVj4YGsuX2rHay7ENYrxgbqH8G48QGrQCSfp_Bfr4CM6OQ9-vVKFWRtgR7"
+  "providerAccessToken": "ya29.a0AfH6SMDqTyXjkpxXFtQ9PQ3rDNe04dyExRJFpbzAETE9kATL6quNdq3weVozsLC5s7JHruBe7NRU9_2ZwRV2iKLDwK_oUU5wZSrIe45OI6945dfYx-_-91GpwSRQc7D8PV83G3DcADf_BVGyoWBy16JKLJ4TsnZHRX8m"
 }
 
 ###
