@@ -8,11 +8,6 @@ dependencyManagement {
     }
 }
 
-repositories {
-    mavenCentral()
-    maven { url 'https://repo.spring.io/libs-milestone' }
-}
-
 dependencies {
     implementation project(':core:core-file')
 
