@@ -1,0 +1,10 @@
+plugins {
+    id 'java-library'
+}
+
+dependencies {
+    api project(':module:module-object-mapper-async')
+
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+    implementation "com.auth0:java-jwt:${jwtVersion}"
+}

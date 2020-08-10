@@ -26,4 +26,5 @@ include 'in-system-available:common-web'
 
 include 'module:module-validation'
 include 'module:module-object-mapper-async'
+include 'core:core-jwt-converter'
 
