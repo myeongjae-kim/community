@@ -36,6 +36,7 @@ public class MonolithResourceServerConfig extends ResourceServerConfigurerAdapte
         .antMatchers(HttpMethod.GET, "/user-resources/me").authenticated()
         .antMatchers(HttpMethod.GET, "/notices").permitAll()
         .antMatchers(HttpMethod.GET, "/notices/{\\d}").permitAll()
+        .antMatchers("/users/**").permitAll()
       .and()
         .authorizeRequests()
         .antMatchers("/**").hasAuthority(Role.ROLE_ADMIN.name())

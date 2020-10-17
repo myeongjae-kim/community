@@ -38,6 +38,17 @@ security:
     resource:
       token-info-uri: http://localhost:8081/oauth/check_token
 
+service:
+  auth-api: http://localhost:8081
+jwt:
+  secret: secretKeyEqualOrLargerThan32byte
+  max-age: 3600
+  cookie:
+    key: kiworkshop_community_local
+    secure: false
+    domain: .kiworkshop.org
+    same-site: lax
+
 ---
 
 spring:
